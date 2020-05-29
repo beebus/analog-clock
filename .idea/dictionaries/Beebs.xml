@@ -2,6 +2,8 @@
   <dictionary name="Beebs">
     <words>
       <w>clockbox</w>
+      <w>hourhand</w>
+      <w>minutehand</w>
     </words>
   </dictionary>
 </component>
