@@ -62,5 +62,6 @@
 #minute,
 #second {
     transform-origin: 300px 300px;
-    transition: transform .5s ease-in-out;
+    /* Commenting out the following line resolves the issue with "return to zero" when the clock hands go back to 0 */
+    /* transition: transform .5s ease-in-out; */
 }

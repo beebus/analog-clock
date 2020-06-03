@@ -2,12 +2,25 @@ const HOURHAND = document.querySelector("#hour");
 const MINUTEHAND = document.querySelector("#minute");
 const SECONDHAND = document.querySelector("#second");
 
-let hrPosition = 20;    // set initially to random numbers
-let minPosition = 130;
-let secPosition = 267;
+function runTheClock() {
+    // get the current hour, minute, and second with the Date() object
+    var date = new Date();
+    console.log(date);
+    let hr = date.getHours();
+    let min = date.getMinutes();
+    let sec = date.getSeconds();
+    console.log("Hour: " + hr + " Minute: " + min + " Second: " + sec);
 
-// apply these numbers as degrees
-HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
-MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";
-SECONDHAND.style.transform = "rotate(" + secPosition + "deg)";
+    // calculate the degree position for each hand of the clock
+    let hrPosition = (hr * 360 / 12) + (min * (360 / 60) / 12);
+    let minPosition = (min * 360 / 60) + (sec * (360 / 60) / 60);
+    let secPosition = sec * 360 / 60;
 
+    // apply these numbers as degrees
+    HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
+    MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";
+    SECONDHAND.style.transform = "rotate(" + secPosition + "deg)";
+}
+
+// call the runTheClock function continuously
+var interval = setInterval(runTheClock, 1000);
